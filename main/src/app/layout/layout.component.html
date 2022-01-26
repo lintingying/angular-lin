@@ -1,0 +1,18 @@
+<nz-layout style="min-height: 100%;" [ngClass]="{ 'layout-sider-collapsed': settings.layout.collapsed }"
+  *ngIf="loadReady">
+  <nz-header class="header" id="header-nav">
+    <app-header></app-header>
+  </nz-header>
+
+  <nz-layout style="min-height: 100%;overflow-x: visible;width: 100%">
+    <nz-sider class="side" id="aside-nav" [nzTheme]="settings.layout.menuThemeType"
+      [nzCollapsed]="settings.layout.collapsed"
+      *ngIf="settings.layout.menuType === MenuType.Side || settings.layout.menuType === MenuType.Compact">
+      <app-sidebar></app-sidebar>
+    </nz-sider>
+    <nz-content class="content">
+      <div id="micro-app-container"></div>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

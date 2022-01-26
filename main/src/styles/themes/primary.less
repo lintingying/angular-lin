@@ -1,0 +1,9 @@
+@import '~styles/default';
+.for-each(@themes-color, {
+    .@{adKey} {
+        .text-primary {
+            color: @adValue  !important;
+        }
+    }
+}
+);

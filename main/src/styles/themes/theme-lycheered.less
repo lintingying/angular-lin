@@ -1,0 +1,22 @@
+@import "../default";
+@import "_color";
+@import "theme.less";
+.theme-lycheered {
+    @theme-color: #9b0a4b;
+    .layoutTheme(@theme-color);
+    .antColor(@theme-color);
+    /* set <a> style as default */
+    a {
+        color: #1890ff;
+        &:hover {
+            color: #40a9ff
+        }
+        &:active {
+            color: #096dd9
+        }
+    }
+    .ant-alert-info {
+        border: 1px solid #91d5ff;
+        background-color: #e6f7ff;
+    }
+}

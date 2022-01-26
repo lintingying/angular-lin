@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>请升级你的浏览器</title>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <style type="text/css">
+    /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+      margin: 0;
+      padding: 0
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block
+    }
+
+    body {
+      line-height: 1
+    }
+
+    ol,
+    ul {
+      list-style: none
+    }
+
+    blockquote,
+    q {
+      quotes: none
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: none
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0
+    }
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0072c6;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #004d8c;
+    }
+
+    body {
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: Microsoft YaHei, '宋体', sans-serif;
+      color: #454545;
+      overflow-y: scroll;
+      _overflow-y: auto;
+      *overflow-y: auto
+    }
+
+    .page {
+      width: 960px;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: left;
+    }
+
+    h2,
+    h3 {
+      font-family: Microsoft YaHei
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 60px;
+      font-weight: 100;
+      margin: 20px 0 15px;
+    }
+
+    h2 {
+      font-size: 20px;
+      line-height: 25px;
+      font-weight: 100;
+      margin: 10px 0;
+    }
+
+    h3 {
+      font-weight: bold
+    }
+
+    code {
+      padding: 2px 4px;
+      font-size: 95%;
+      color: #c7254e;
+      background-color: #f9f2f4;
+      border-radius: 4px;
+    }
+
+    pre code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: inline-block;
+      word-break: break-all;
+    }
+
+    ul {
+      padding: 0 1em;
+    }
+
+    ul li {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+
+    b,
+    strong {
+      font-weight: bold
+    }
+
+    em {
+      color: red
+    }
+
+    p {
+      margin-bottom: 10px
+    }
+
+    hr,
+    .hr {
+      margin: 20px 0;
+      border: 0;
+      width: 100%;
+      height: 1px;
+      overflow: hidden;
+      background-color: #ccc
+    }
+
+    .text-right {
+      text-align: right
+    }
+
+    .clearboth {
+      clear: both;
+      width: 100%;
+      content: "";
+    }
+
+    .clearleft {
+      clear: left;
+      width: 100%;
+      content: "";
+    }
+
+    .clearright {
+      clear: right;
+      width: 100%;
+      content: "";
+    }
+
+    .browser-list {
+      margin: 16px 0 10px;
+      padding: 0;
+      height: 42px;
+      _overflow: hidden
+    }
+
+    .browser {
+      display: block;
+      width: 155px;
+      height: 34px;
+      line-height: 22px;
+      float: left;
+      list-style: none;
+    }
+
+    .browser.clearleft {
+      height: 1px
+    }
+
+    .browser span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .browser img {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .browser .logo {
+      width: 38px;
+      height: 38px;
+    }
+
+    .browser.firefox {
+      width: 150px
+    }
+
+    .browser.edge {
+      width: 170px
+    }
+
+    .browser.maxthon {
+      width: 180px
+    }
+
+    .small-alert {
+      font-size: 12px;
+      margin: 15px 0 8px;
+      color: #90949c
+    }
+
+    .small-alert:not(.hide)+hr {
+      margin-top: 0
+    }
+
+    .hide {
+      display: none
+    }
+
+    .alert-danger {
+      display: block;
+      color: #777;
+      background-color: #f1f1f1;
+      padding: 6px 12px;
+      _padding: 8px 12px 6px;
+      clear: both;
+    }
+
+    .alert-info {
+      color: #000;
+      background-color: #f1f6fc;
+      margin-top: 12px
+    }
+
+    .alert-info img {
+      vertical-align: text-top;
+    }
+
+    #win-danger {
+      margin-top: 12px;
+      position: relative;
+    }
+
+    #win-danger .arrow {
+      background: url(/images/arrow.png) no-repeat;
+      border: 0;
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 12px;
+      left: 325px;
+      top: -12px
+    }
+
+    .targetline,
+    #referrer a {
+      word-break: break-all;
+    }
+
+    .top-alert {
+      background: #f2f2f2;
+    }
+
+    .top-alert-content {
+      font-size: 14px;
+    }
+
+    @media only screen and (max-width: 959px) {
+      .page {
+        max-width: 100%;
+        padding: 20px;
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      h1 {
+        font-size: 26px;
+        line-height: 1.8;
+        font-weight: bold;
+        margin-top: 0
+      }
+
+      .browser-list {
+        height: auto
+      }
+
+      .browser {
+        margin: 0 20px 20px 0
+      }
+
+      code {
+        word-break: break-word;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <h1>是时候升级你的浏览器了cc</h1>
+    <p>你正在使用旧版 Internet Explorer（IE11以下版本或使用该内核的浏览器）。这意味着在升级浏览器前，你将无法访问此网站。</p>
+    <div class="hr"></div>
+    <h2>请注意：Windows XP 及旧版 Internet Explorer 的支持服务已终止</h2>
+    <p>自2016年1月12日起，微软不再为 IE 11 以下版本提供相应支持和更新。没有关键的浏览器安全更新，您的电脑可能易受有害病毒、间谍软件和其他恶意软件的攻击，它们可以窃取或损害您的业务数据和信息。请参阅
+      <a href="https://www.microsoft.com/zh-cn/microsoft-365/windows/end-of-ie-support?rtc=1">微软对旧版 Internet
+        Explorer 的支持服务已终止的说明</a> 。
+    </p>
+    <div class="hr"></div>
+    <h2>更先进的浏览器</h2>
+    <p>推荐使用以下浏览器的最新版本。如果你的电脑已有以下浏览器的最新版本则直接使用该浏览器极速模式访问网页即可。</p>
+    <ul id="browser-list" class="browser-list">
+      <li class="browser chrome">
+        <a href="/assets/setup/ChromeSetup.exe" id="chromehref"><img id="chromeimg" src="/assets/images/chrome.png"
+            width="34" height="34" alt="谷歌浏览器">谷歌浏览器 <span id="browser-chrome-badge">Google
+            Chrome</span></a>
+      </li>
+      <li class="browser edge">
+        <a href="/assets/setup/MicrosoftEdgeSetup.exe" id="edgehref"><img id="edgeimg" src="/assets/images/edge.png"
+            width="34" height="34" alt="微软浏览器">微软Edge浏览器<span id="browser-edge-badge">Microsoft
+            Edge</span></a>
+      </li>
+      <li class="browser maxthon">
+        <a href="https://www.maxthon.cn/mx5/dl?m=mx5"><img class="logo" id="maxthonimg" src="/assets/images/maxthon.png"
+            width="38" height="38" alt="傲游浏览器">傲游浏览器<span id="browser-qqbrowser-badge">WindowsXP用户推荐</span></a>
+      </li>
+      <li class="browser clearleft"></li>
+    </ul>
+    <!-- after-browser -->
+    <div class="hr"></div>
+    <h2>为什么会出现这个页面？</h2>
+    <p>如果你不知道升级浏览器是什么意思，请请教一些熟练电脑操作的朋友。如果你使用的不是IE6/7/8/9/10，而是360浏览器、QQ浏览器、搜狗浏览器等，出现这个页面是因为你使用的不是该浏览器的最新版本，升级至最新即可。
+    </p>
+  </div>
+  <script type="text/javascript">
+    var path = location.pathname;
+    var sIndex = path.indexOf('/status/');
+    var base = "";
+    function getOrigin() {
+      if (!window.location.origin) {
+        return window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+      } else {
+        return window.location.origin;
+      }
+    }
+    if (sIndex > 0) {
+      base = location.pathname.substr(0, sIndex);
+      var chromehref = document.getElementById("chromehref");
+      chromehref.href = base + chromehref.getAttribute("href").replace(getOrigin(), "");
+      var edgehref = document.getElementById("edgehref");
+      edgehref.href = base + edgehref.getAttribute("href").replace(getOrigin(), "");
+
+      var chromeimg = document.getElementById("chromeimg");
+      chromeimg.src = base + chromeimg.getAttribute("src").replace(getOrigin(), "");
+      var edgeimg = document.getElementById("edgeimg");
+      edgeimg.src = base + edgeimg.getAttribute("src").replace(getOrigin(), "");
+      var maxthonimg = document.getElementById("maxthonimg");
+      maxthonimg.src = base + maxthonimg.getAttribute("src").replace(getOrigin(), "");
+
+    }
+
+
+  </script>
+</body>
+
+</html>

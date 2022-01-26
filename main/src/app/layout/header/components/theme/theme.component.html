@@ -1,0 +1,36 @@
+<div nz-menu-item>
+  <strong>主题色</strong>
+  <div class="theme-icons">
+    <div *ngFor="let item of themes" (click)="changeTheme(item.l)" [style.background]="item.bg" [title]="item.title">
+      <i nz-icon nzType="check" *ngIf="item.l == settings.layout.theme"></i>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="settings.layout.menuType === MenuType.Side || settings.layout.menuType === MenuType.Compact">
+  <li nz-menu-divider></li>
+  <div nz-menu-item>
+    <strong>菜单风格</strong>
+    <div class="menu-style-icons">
+      <div class="menu-style" *ngFor="let item of menuStyles" (click)="changeMenuStyles(item.l)" nz-tooltip
+        [nzTooltipTitle]="item.title">
+        <app-menu-style [type]="item.l"></app-menu-style>
+        <div class="select-icon" style="display: block;">
+          <i nz-icon nzType="check" *ngIf="item.l == settings.layout.menuThemeType"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<li nz-menu-divider></li>
+
+<div nz-menu-item>
+  <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+    <div nz-col nzFlex="1">紧凑布局</div>
+    <div nz-col nzFlex="1" style="line-height: 12px;">
+      <nz-switch [ngModel]="settings.layout.compact" nzSize="small" (ngModelChange)="changeCompact($event)"
+        style="line-height: 12px;"></nz-switch>
+    </div>
+  </div>
+</div>

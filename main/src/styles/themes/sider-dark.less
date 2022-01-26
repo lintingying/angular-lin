@@ -1,0 +1,26 @@
+.layout-sider-dark {
+    @sider-dark-color: #001529;
+    .aside {
+        background-color: @sider-dark-color;
+    }
+    .nav {
+        >li {
+            >a,
+            &.@{nav-prefix-cls}-group-title {
+                color: rgba(255, 255, 255, 0.65);
+            } // Selected
+            &.@{nav-prefix-cls}-item-selected {
+                background-color: rgb(51, 51, 51);
+            }
+        }
+    }
+    .nav-floating {
+        background-color: @sider-dark-color;
+        border: none;
+    }
+    .user-block {
+        .info {
+            color: rgba(255, 255, 255, 0.65);
+        }
+    }
+}

@@ -1,0 +1,19 @@
+
+@import '../../../src/styles/default.less';
+
+.for-each(@themes-color,
+    {
+    .@{adKey} {
+      :host .header {
+        background-color: @adValue;
+      }
+    }
+  }
+
+);
+
+:host {
+  .header {
+    padding: 0 16px;
+  }
+}

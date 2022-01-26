@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>文档在线编辑</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* modal样式开始 */
+    .modal-container {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+    }
+
+    .modal-mask {
+      width: 100%;
+      height: 100%;
+      background-color: #5c5c5c;
+      text-align: center;
+    }
+
+    .modal-mask:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .modal {
+      position: relative;
+      width: 528px;
+      background-color: #fff;
+      border-radius: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: rgba(0, 0, 0, .45);
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    .modal-close-btn:hover {
+      color: rgba(0, 0, 0, .85);
+    }
+
+    .modal-header {
+      box-sizing: border-box;
+      height: 48px;
+      line-height: 48px;
+      padding-left: 24px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .modal-content {
+      overflow-y: auto;
+      max-height: 500px;
+      min-height: 50px;
+      padding: 24px;
+      cursor: pointer;
+    }
+
+    .modal-footer {
+      box-sizing: border-box;
+      height: 48px;
+      padding: 8px 12px;
+      border-top: 1px solid #f0f0f0;
+      text-align: right;
+    }
+
+    .button {
+      text-align: center;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+      cursor: pointer;
+      height: 100%;
+      padding: 4px 15px;
+      margin-left: 8px;
+      font-size: 14px;
+      border-radius: 2px;
+      color: rgba(0, 0, 0, .85);
+      background: #fff;
+      border: 1px solid #d9d9d9;
+    }
+
+    .primary-btn {
+      background: #1890ff;
+      color: #fff;
+    }
+
+    .modal-loading {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    /* modal样式结束 */
+
+    .template-item,
+    .bookmark-item {
+      height: 30px;
+      line-height: 30px;
+      padding-left: 12px;
+      font-family: Arial;
+    }
+
+    .template-item:hover,
+    .bookmark-item:hover {
+      background-color: #f6f6f6;
+    }
+
+    .seal-password {
+      padding: 8px 24px;
+    }
+
+    .password-input {
+      height: 24px;
+      width: 480px;
+      border: 1px solid #e6e6e6;
+    }
+
+    .seal-active {
+      border-bottom: 3px solid #1890ff;
+    }
+  </style>
+  <script>
+    // 标准版-隐藏url参数 将url中的参数存起，然后重定向
+    if (window.location.search && window.location.search.indexOf('openerId') === -1) {
+      var list = window.location.href.split("?");
+      sessionStorage.setItem('weboffice_query', list[1]);
+      location.href = list[0];
+    }
+    window.onerror = function (message, url, line) {
+      alert("Message : " + message + "\nURL : " + url + "\nLine Number : " + line);
+      // Return true to supress the browser error messages (like in older versions of Internet Explorer)
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <div id="objectContainer" style="width:100%;height:100%;">
+    <iframe frameborder="0" style="height:100%;width:100%;min-width:100%;display: none;" id="previewiframe"
+      title="preview Content"></iframe>
+  </div>
+</body>
+
+<script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    if (script.readyState) {
+      script.onreadystatechange = function () {
+        if (script.readyState == "loaded" || script.readyState == "complete") {
+          script.onreadystatechange = null;
+          if (callback) {
+            callback();
+          }
+        }
+      }
+    } else {
+      script.onload = function () {
+        if (callback) {
+          callback();
+        }
+      }
+    }
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  var base = "";
+  var sIndex = location.pathname.indexOf('/weboffice/');
+  if (sIndex > 0) {
+    base = location.pathname.substr(0, sIndex);
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('post', base + '/Options/SysInitConfig', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var result = JSON.parse(xhr.responseText);
+      // 获取版本号-再加载js文件
+      var version = window.version = result.Data.Version;
+
+      //适配二级目录
+      loadScript(base + '/assets/plugins/jquery/jquery-1.12.4.min.js', function () {
+        loadScript('js/polyfill.js?v=' + version);
+        loadScript('js/util.js?v=' + version);
+        loadScript('js/tool-button.js?v=' + version);
+        loadScript('js/weboffice-config.js?v=' + version);
+        loadScript('js/modal.js?v=' + version, function () {
+          loadScript('js/logger.js?v=' + version, function () {
+            loadScript('js/weboffice.js?v=' + version, function () {
+              loadScript('js/index.js?v=' + version);
+            });
+          });
+        });
+      });
+    }
+  }
+  xhr.send();
+
+</script>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.locale": "zh-CN",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "vsicons.presets.angular": true,
+  "auto-close-tag.SublimeText3Mode": true
+}

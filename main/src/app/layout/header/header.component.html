@@ -1,0 +1,29 @@
+<div class="wrap">
+  <div class="logo">
+    <a [routerLink]="['/']">
+      <img class="expanded"  src="{{fullLogoSrc}}"
+        onerror="javascript:this.onerror=null;this.src='/assets/images/logo-full.png'" />
+      <img class="collapsed" src="{{miniLogoSrc}}"
+        onerror="javascript:this.onerror=null;this.src='/assets/images/logo.svg'" />
+    </a>
+  </div>
+
+  <div *ngIf="settings.layout.menuType === MenuType.Side">
+    <span id="toggle-aside" class="top-nav_item" (click)="toggleCollapsed()">
+      <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+    </span>
+    <span id="top-home" class="top-nav_item" [routerLink]="['/']">
+      <i nz-icon nzType="home" nzTheme="outline"></i>
+    </span>
+  </div>
+
+  <div class="extra">
+    <nz-avatar [nzSize]="32" nzIcon="user" nz-dropdown [nzDropdownMenu]="menu"></nz-avatar>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div nz-menu>
+        <app-header-theme></app-header-theme>
+      </div>
+    </nz-dropdown-menu>
+  </div>
+
+</div>

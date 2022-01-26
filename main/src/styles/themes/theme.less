@@ -1,0 +1,21 @@
+@import "../default.less";
+.layoutTheme(@theme-color) {
+    .header {
+        background-color: @theme-color;
+    }
+    .nav {
+        >li {
+            >a {
+                &:hover {
+                    color: @theme-color;
+                }
+            } // Selected
+            &.@{nav-prefix-cls}-item-selected {
+                border-left-color: @theme-color;
+                >a {
+                    color: @theme-color;
+                }
+            }
+        }
+    }
+}
