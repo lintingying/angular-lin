@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { start } from 'qiankun';
-import { StartService } from './core/init/start.service';
+import { Config } from './core/init/config';
 
 /**
  * 如何在主应用的某个路由页面加载微应用
@@ -12,13 +12,13 @@ import { StartService } from './core/init/start.service';
 })
 export class MicroComponent implements OnInit, AfterViewInit {
   CONTAINER = 'micro-app-container';
-  constructor(private startSvc: StartService) { }
+  constructor(private config: Config) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    const apps = this.startSvc.getConfig().MicroApps;
+    const apps = this.config.MicroApps;
 
     if (!window.qiankunStarted && apps && apps.length > 0 && document.getElementById(this.CONTAINER)) {
       window.qiankunStarted = true;

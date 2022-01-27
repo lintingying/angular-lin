@@ -1,5 +1,5 @@
-import { StartService } from './../../core/init/start.service';
 import { Component, OnInit } from '@angular/core';
+import { Config } from 'src/app/core/init/config';
 
 @Component({
   selector: 'app-portal',
@@ -8,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortalComponent implements OnInit {
 
-  constructor(private startSvc: StartService) { }
+  constructor(private config: Config) { }
 
   ngOnInit() {
-    console.log(this.startSvc.getConfig());
-
+    console.log(this.config);
   }
 
 }

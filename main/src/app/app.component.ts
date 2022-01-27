@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { registerMicroApps } from 'qiankun';
-import { StartService } from './core/init/start.service';
+import { Config } from './core/init/config';
 
 @Component({
   selector: 'app-app',
@@ -10,10 +10,10 @@ import { StartService } from './core/init/start.service';
 export class AppComponent implements OnInit {
   CONTAINER = '#micro-app-container';
   microApps = [];
-  constructor(private router: Router, private startSvc: StartService) { }
+  constructor(private router: Router, private config: Config) { }
 
   ngOnInit(): void {
-    const apps = this.startSvc.getConfig().MicroApps;
+    const apps = this.config.MicroApps;
     if (apps && apps.length > 0) {
       apps.forEach((entry: any) => {
         const paths = `/micro/${entry.Path}`;
