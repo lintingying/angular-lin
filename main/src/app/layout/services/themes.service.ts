@@ -69,9 +69,10 @@ export class ThemesService {
     const bodyEl = this.doc.querySelector('body');
     if (bodyEl.classList.length > 1) {
       const removeArr = [];
-      for (let i in bodyEl.classList) {
-        if (bodyEl.classList[i].startsWith('theme-') && bodyEl.classList[i].lastIndexOf('compact') < 0) {
-          removeArr.push(bodyEl.classList[i]);
+      const list = Array.from(bodyEl.classList);
+      for (let item of list) {
+        if (item.startsWith('theme-') && item.lastIndexOf('compact') < 0) {
+          removeArr.push(item);
         }
       }
 
