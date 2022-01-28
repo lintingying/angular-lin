@@ -16,6 +16,8 @@ registerLocaleData(zh);
   providers: [],
 })
 export class CoreModule {
+  // 只有根模块 RootModule 才能导入CoreModule。如果一个惰性加载模块也导入了它，该应用就会为服务生成多个实例。
+  // 要想防止惰性加载模块重复导入CoreModule，可以添加如下的CoreModule构造函数。
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }

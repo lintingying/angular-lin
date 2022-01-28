@@ -15,7 +15,7 @@ registerLocaleData(zh);
   declarations: [RootComponent],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule, // 应该在根模块中导入一次 ta为浏览器所做的应用配置只会使用一次
     RootRoutesModule,
     CoreModule.forRoot(),
     SharedModule,

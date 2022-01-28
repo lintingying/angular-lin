@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PortalComponent } from './portal.component';
 import { PortalRoutes } from './portal.routing';
 import { SharedModule } from '@shared/shared.module';
+import { IndexComponent } from './pages/index/index.component';
 @NgModule({
   imports: [
     SharedModule,
     PortalRoutes,
   ],
-  declarations: [PortalComponent]
+  declarations: [IndexComponent]
 })
 export class PortalModule { }
