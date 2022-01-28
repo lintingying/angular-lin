@@ -3,5 +3,9 @@
   "dest": "../../dist/my-lib",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "copyfiles",
+    "typescript"
+  ]
 }

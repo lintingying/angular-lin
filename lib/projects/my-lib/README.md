@@ -22,3 +22,11 @@ Run `ng test my-lib` to execute the unit tests via [Karma](https://karma-runner.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+在\lib\projects下生成library  ng generate library my-lib
+添加原理图 参考 https://angular.cn/guide/schematics-for-libraries
+
+// 原理图的主文件 index.ts 定义了一组实现原理图逻辑的规则。
+// schema.json	原理图变量定义。
+// schema.d.ts	原理图变量。
+// files/	要复制的可选组件/模板文件。

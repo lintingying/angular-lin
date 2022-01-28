@@ -4,9 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build:my-app": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build my-app",
+    "build:my-lib": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build my-lib",
+    "build:micro": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build micro",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -26,10 +29,11 @@
     "@angular-devkit/build-angular": "~0.1002.3",
     "@angular/cli": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "copyfiles": "^2.4.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",

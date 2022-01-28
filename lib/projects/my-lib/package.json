@@ -6,6 +6,14 @@
     "@angular/core": "^10.2.4"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "copyfiles": "file:../../node_modules/copyfiles",
+    "typescript": "file:../../node_modules/typescript"
+  },
+  "scripts": {
+    "build": "node ../../node_modules/typescript tsc -p tsconfig.schematics.json",
+    "postbuild": "node ../../node_modules/copyfiles copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/my-lib/"
+  },
+  "ng-add": {
+    "save": "devDependencies"
   }
 }
