@@ -1,17 +1,14 @@
 {
   "name": "my-lib",
   "version": "0.0.1",
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
-    "@angular/common": "^10.2.4",
-    "@angular/core": "^10.2.4"
-  },
-  "dependencies": {
-    "copyfiles": "file:../../node_modules/copyfiles",
-    "typescript": "file:../../node_modules/typescript"
+    "@angular/common": "~10.2.0",
+    "@angular/core": "~10.2.0"
   },
   "scripts": {
-    "build": "node ../../node_modules/typescript tsc -p tsconfig.schematics.json",
-    "postbuild": "node ../../node_modules/copyfiles copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/my-lib/"
+    "copy:schematics": "../../node_modules/.bin/copyfiles ./schematics/*.json ./schematics/*/schema.json ./schematics/*/files/**  ../../dist/my-lib/",
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json && yarn copy:schematics"
   },
   "ng-add": {
     "save": "devDependencies"

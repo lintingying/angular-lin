@@ -9,6 +9,7 @@
     "build:my-app": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build my-app",
     "build:my-lib": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build my-lib",
     "build:micro": "node --max_old_space_size=10240 node_modules/@angular/cli/bin/ng build micro",
+    "build:my-lib-schematics": "yarn build:my-lib && cd projects/my-lib & yarn build",
     "e2e": "ng e2e"
   },
   "private": true,
