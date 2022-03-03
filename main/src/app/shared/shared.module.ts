@@ -3,6 +3,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedDirective } from './shared-directives';
 import { ThirdExportModule, ThirdModule } from './third-module';
 
 @NgModule({
@@ -18,9 +19,10 @@ import { ThirdExportModule, ThirdModule } from './third-module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    ...SharedDirective,
     ...ThirdExportModule,
   ],
-  declarations: []
+  declarations: [...SharedDirective,]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

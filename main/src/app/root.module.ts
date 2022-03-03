@@ -10,7 +10,8 @@ import { CoreModule } from './core/core.module';
 import { IconModule } from '@ant-design/icons-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(zh);
-
+// https://ng.ant.design/docs/i18n/zh
+// ng-zorro-antd 提供了几个配置型 token 用于全局配置国际化文案和日期，NZ_I18N用于国际化文案，NZ_DATE_CONFIG用于修改日期相关特性
 @NgModule({
   declarations: [RootComponent],
   imports: [
