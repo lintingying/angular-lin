@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { HttpTransportType, HubConnection, HubConnectionBuilder, IHttpConnectionOptions } from '@microsoft/signalr';
 import { Observable } from 'rxjs';
 import { Util } from 'src/app/util/utils';
 import { EventBusService } from './event-bus.service';
@@ -8,10 +8,13 @@ import { EventBusService } from './event-bus.service';
  * websocket 实时通信
  * https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-6.0&tabs=visual-studio
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class WebsocketService {
 
   private hubConnection: HubConnection;
+  private transport: HttpTransportType = HttpTransportType.WebSockets;
   /**
    * 是否已建立连接
    */
@@ -20,7 +23,16 @@ export class WebsocketService {
     this.init();
   }
   init() {
-    this.hubConnection = new HubConnectionBuilder().withUrl("/chathub").build();
+    const options: IHttpConnectionOptions = {
+      accessTokenFactory: () => {
+        return 'token';
+      },
+      transport: this.transport,
+    };
+    this.hubConnection = new HubConnectionBuilder()
+      .withUrl('//localhost:4200/noty', options)
+      .withAutomaticReconnect([0, 2000, 10000, 30000, 120000, 300000])
+      .build();
     this.start();
     this.registerServerEvents();
   }
@@ -29,9 +41,11 @@ export class WebsocketService {
   async start() {
     try {
       await this.hubConnection.start();
+      this.isConnect = true;
       console.log("SignalR Connected.");
     } catch (err) {
       console.log(err);
+      this.isConnect = false;
       setTimeout(this.start, 5000);
     }
   };

@@ -4,7 +4,13 @@ const PROXY_CONFIG = [
     target: 'http://localhost:8080',
     secure: false,
   },
-
+  {
+    context: ['/noty'],
+    target: 'http://localhost:8080',
+    secure: false,
+    changeOrigin: false,
+    ws: true,
+  },
   {
     context: ['/micro/project'],
     target: 'http://localhost:4201',
@@ -17,3 +23,5 @@ const PROXY_CONFIG = [
   },
 ];
 module.exports = PROXY_CONFIG;
+
+// 后端端口http://localhost:8080
